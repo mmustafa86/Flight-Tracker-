@@ -6,6 +6,7 @@ import Select from './Component/Select'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from '@material-ui/core/Button';
 import Info from './Component/info'
+
 function App() {
 
   return (
