@@ -7,18 +7,7 @@ export default class info extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        flight: []
     };
-  }
-  componentDidMount() {
-    const apiKey ="6e8467-016c01";
-    const cors ="https://cors-anywhere.herokuapp.com/"
-
-    axios.get(cors+'https://aviation-edge.com/v2/public/timetable?key='+apiKey+'&iataCode=&type=departure')
-    .then(({ data }) => {
-      console.log(data)
-      this.setState({ flight: data })
-    })
   }
 
 
