@@ -5,53 +5,75 @@ import '../Component/search.css'
 import axios from 'axios'
 import Info from '../Component/info'
 import MaterialUIPickers from '../Component/date'
+
+
+
 export default class Select extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        flight: []
+        flight: {},
+        airport:'',
+        airline:''
+
     };
   }
 
-  recordState(event){
+  recordAirport(event){
       let info=event.target.value;
       console.log(info)
+      this.setState({airport: info})
   }
+
+  recordAirline(event){
+    let info=event.target.value;
+    console.log(info)
+    this.setState({airline: info})
+}
+
+
+
 
 
   getInfo (){
     const apiKey ="6e8467-016c01";
     const cors ="https://cors-anywhere.herokuapp.com/"
 
-    axios.get(cors+'http://aviation-edge.com/v2/public/flights?key='+apiKey+'&arrIata=IAH')
+    axios.get(cors+'http://aviation-edge.com/v2/public/flights?key='+apiKey+'&arrIata='+this.state.airport)
     .then(({ data }) => {
-      console.log(data)
+    //   console.log(data)
       this.setState({ flight: data })
     })
   }
 
   submitInfo(event){
     event.preventDefault() 
+
 this.getInfo ()
+
   
   }
 
+  
+
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
+        <div>
         <div className="Search">
+        
    <Form>
    <h4>Check Flight Satus</h4>
   <Form.Row>
-  
+{/*   
     <Form.Group >
       <Form.Label>From</Form.Label>
       <Form.Control onChange={(e)=> this.recordState(e)}/>
-    </Form.Group>
+    </Form.Group> */}
 
     <Form.Group  >
       <Form.Label>Airport</Form.Label>
-      <Form.Control as="select" onChange={(e)=> this.recordState(e)}>
+      <Form.Control as="select" onChange={(e)=> this.recordAirport(e)}>
         <option>Choose...</option>
         <option>IAH</option>
       </Form.Control>
@@ -59,15 +81,15 @@ this.getInfo ()
 
     <Form.Group  >
       <Form.Label>Airlines</Form.Label>
-      <Form.Control as="select" onChange={(e)=> this.recordState(e)}>
+      <Form.Control as="select" onChange={(e)=> this.recordAirline(e)}>
         <option>Choose...</option>
         <option>UNITED</option>
       </Form.Control>
     </Form.Group>
-    <Form.Group  >
+    {/* <Form.Group  >
       <Form.Label>To</Form.Label>
       <Form.Control onChange={(e)=> this.recordState(e)}/>
-    </Form.Group>
+    </Form.Group> */}
     <Form.Group >
       <Form.Label>Date</Form.Label>
       <Form.Control type="date" placeholder="Date" onChange={(e)=> this.recordState(e)}/>
@@ -79,7 +101,11 @@ this.getInfo ()
   <Button variant="primary" type="submit" onClick={(e)=>this.submitInfo(e)}>Search</Button>
     {/* <MaterialUIPickers /> */}
 </Form>
-    
+    <div>
+       
+    </div>
+      </div>
+      <Info info={this.state}/>
       </div>
     );
   }

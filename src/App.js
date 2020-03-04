@@ -13,7 +13,7 @@ function App() {
     <div className="App-header">
     <Header/>
     <Select/>
-    <Info/>
+
  <Footer/>
     </div>
   );
