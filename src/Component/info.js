@@ -29,6 +29,7 @@ console.log(info)
           <th>Airline</th>
           <th>Arrival</th>
           <th>Departure</th>
+          <th>Departure</th>
 
         </tr>
       </MDBTableHead>
@@ -38,7 +39,7 @@ console.log(info)
             console.log(data)
             return (
             <tr>
-          <td>{index}</td>
+          <td key={index}>{index}</td>
           <td>{data.aircraft.iataCode}</td>
           <td>{data.airline.icaoCode}</td>
           <td>{data.arrival.icaoCode}</td>

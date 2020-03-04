@@ -101,9 +101,7 @@ this.getInfo ()
   <Button variant="primary" type="submit" onClick={(e)=>this.submitInfo(e)}>Search</Button>
     {/* <MaterialUIPickers /> */}
 </Form>
-    <div>
-       
-    </div>
+   
       </div>
       <Info info={this.state}/>
       </div>
