@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import {Card,Button} from "react-bootstrap";
+import React from 'react';
+import {Card} from "react-bootstrap";
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
-import Select from '../Component/Select'
+// import Select from '../Component/flightstracker'
 
 
  const info = (props)=>{
@@ -29,7 +29,8 @@ console.log(info)
           <th>Airline</th>
           <th>Arrival</th>
           <th>Departure</th>
-          <th>Departure</th>
+          <th>Flight Number</th>
+         <th>Status</th>
 
         </tr>
       </MDBTableHead>
@@ -44,6 +45,8 @@ console.log(info)
           <td>{data.airline.icaoCode}</td>
           <td>{data.arrival.icaoCode}</td>
           <td>{data.departure.icaoCode}</td>
+          <td>{data.flight.iataNumber}</td>
+          <td>{data.status}</td>
         </tr> 
             )
     })}

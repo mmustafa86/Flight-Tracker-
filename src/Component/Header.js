@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Nav ,Navbar, Form ,FormControl ,Button} from 'react-bootstrap';
+import { Nav ,Navbar} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import 'mdbreact/dist/css/mdb.css';
 export default class Header extends Component {
   constructor(props) {
     super(props);
@@ -14,8 +15,8 @@ export default class Header extends Component {
   <Navbar bg="light" variant="light">
     <Navbar.Brand href="#home"><Link to="/">Flights Tracker App</Link></Navbar.Brand>
     <Nav className="mr-auto">
-      <Nav.Link href="#home"><Link to="/flightstracker">Flight Tracker</Link></Nav.Link>
-      <Nav.Link href="#features">Flight schedules </Nav.Link>
+      <Nav.Link ><Link to="/flightstracker">Flight Tracker</Link></Nav.Link>
+      <Nav.Link href="#features"><Link to="/flightsschedules">Flight schedules</Link> </Nav.Link>
       <Nav.Link href="#pricing">Pricing</Nav.Link>
     </Nav>
     {/* <Form inline>
