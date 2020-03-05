@@ -17,7 +17,7 @@ export default class Header extends Component {
     <Nav className="mr-auto">
       <Nav.Link ><Link to="/flightstracker">Flight Tracker</Link></Nav.Link>
       <Nav.Link href="#features"><Link to="/flightsschedules">Flight schedules</Link> </Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
+      {/* <Nav.Link href="#pricing">Pricing</Nav.Link> */}
     </Nav>
     {/* <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />

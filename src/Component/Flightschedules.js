@@ -3,10 +3,11 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
+import Box from '@material-ui/core/Box';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import '../Component/flighttracker/search.css'
+import FlightInfo from './flightSchedulesinfo'
 import axios from 'axios'
 
 export default class Flightschedules extends Component {
@@ -47,7 +48,9 @@ this.getInfo ()
   
   render() {
     return (
+    <div>
         <div  className="flightSchedule">
+        <Box  boxShadow={3} component="span" display="inline">
       <form  noValidate autoComplete="off">
       <h4>Check Flight Satus</h4>
    <TextField id="filled-basic" label="Filled" variant="filled"  onChange={(e)=> this.recordAirport(e)}/>
@@ -86,6 +89,12 @@ this.getInfo ()
       </FormControl>
       <Button variant="contained" color="primary" type="submit" type="submit"onClick={(e)=>this.submitInfo(e)}>Search </Button>
 </form>
+</Box>
+
+      </div>
+      <div classname='result'>
+    <FlightInfo/>
+    </div>
       </div>
     )
   }

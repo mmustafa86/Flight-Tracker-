@@ -1,7 +1,8 @@
 import React from 'react';
 import {Card} from "react-bootstrap";
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
-// import Select from '../Component/flightstracker'
+import {Carousel ,Container, Row} from 'react-bootstrap'
+
 
 
  const info = (props)=>{
@@ -18,6 +19,7 @@ console.log(info)
 
  return (
        <div>
+       <Container>
         <Card className="text-center">
         <Card.Header>Result</Card.Header>
         <Card.Body>
@@ -57,6 +59,7 @@ console.log(info)
         </Card.Body>
         
       </Card> 
+      </Container>
       </div> 
  );
 }
