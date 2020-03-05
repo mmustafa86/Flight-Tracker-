@@ -3,65 +3,87 @@ import React from 'react';
 import {Carousel ,Container, Row} from 'react-bootstrap'
 import { MDBDataTable } from 'mdbreact';
 
-const DatatablePage = () => {
-  const data = {
-    columns: [
-      {
-        label: 'Name',
-        field: 'name',
-        sort: 'asc',
-        width: 150
-      },
-      {
-        label: 'Position',
-        field: 'position',
-        sort: 'asc',
-        width: 270
-      },
-      {
-        label: 'Office',
-        field: 'office',
-        sort: 'asc',
-        width: 200
-      },
-      {
-        label: 'Age',
-        field: 'age',
-        sort: 'asc',
-        width: 100
-      },
-      {
-        label: 'Start date',
-        field: 'date',
-        sort: 'asc',
-        width: 150
-      },
-      {
-        label: 'Salary',
-        field: 'salary',
-        sort: 'asc',
-        width: 100
-      }
-    ],
-    rows: [
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect',
-        office: 'Edinburgh',
-        age: '61',
-        date: '2011/04/25',
-        salary: '$320'
-      },
+
+
+
+const info = (props)=>{
+
+    const info= props.info.flight
+    
+    
+  
+    
+    // function result(info){
+        if(Object.keys(info).length !== 0){
+        //   console.log(info)
+        }
+    }    
+const DatatablePage = (props) => {
+    const info= props.info.flight
+    console.log(info)
+
+    if(Object.keys(info).length !== 0){
+        //   console.log(info)
+        }
+
+//   const data = {
+//     columns: [
+//       {
+//         label: 'Name',
+//         field: 'name',
+//         sort: 'asc',
+//         width: 150
+//       },
+//       {
+//         label: 'Position',
+//         field: 'position',
+//         sort: 'asc',
+//         width: 270
+//       },
+//       {
+//         label: 'Office',
+//         field: 'office',
+//         sort: 'asc',
+//         width: 200
+//       },
+//       {
+//         label: 'Age',
+//         field: 'age',
+//         sort: 'asc',
+//         width: 100
+//       },
+//       {
+//         label: 'Start date',
+//         field: 'date',
+//         sort: 'asc',
+//         width: 150
+//       },
+//       {
+//         label: 'Salary',
+//         field: 'salary',
+//         sort: 'asc',
+//         width: 100
+//       }
+//     ],
+//     rows: [
+//       {
+//         name: 'Tiger Nixon',
+//         position: 'System Architect',
+//         office: 'Edinburgh',
+//         age: '61',
+//         date: '2011/04/25',
+//         salary: '$320'
+//       },
      
-    ]
-  };
+//     ]
+//   };
 
   return (
       <Container>
     <MDBDataTable
       striped
       hover
-      data={data}
+    //   data={data}
     />
     </Container>
   );

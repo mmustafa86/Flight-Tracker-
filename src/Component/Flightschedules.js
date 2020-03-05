@@ -8,6 +8,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import '../Component/flighttracker/search.css'
 import FlightInfo from './flightSchedulesinfo'
+import { MDBCol, MDBIcon } from "mdbreact";
 import axios from 'axios'
 
 export default class Flightschedules extends Component {
@@ -16,8 +17,16 @@ export default class Flightschedules extends Component {
     this.state = {
         flight: {},
         airport:'',
+        airline:'',
+        airlines: [] 
     };
   }
+
+  recordAirline(event){
+    let info=event.target.value;
+    console.log(info)
+    this.setState({airline: info})
+}
 
 
 
@@ -45,34 +54,59 @@ this.getInfo ()
 
   
   }
+
+
+  Airlines(){
+
+    const apiKey ="6e8467-016c01";
+    const cors ="https://cors-anywhere.herokuapp.com/"
+
+    axios.get(cors+'https://aviation-edge.com/v2/public/airlineDatabase?key='+apiKey+'&codeIso2Country=US')
+    .then(({ data }) => {
+      console.log(data)
+
+this.setState({ airlines: data })
+    
+    })
+
+
+  }
+
+  componentDidMount() {
+
+   this.Airlines()
+  }
   
   render() {
     return (
     <div>
         <div  className="flightSchedule">
-        <Box  boxShadow={3} component="span" display="inline">
+        <Box  boxShadow={0} component="span" display="inline">
       <form  noValidate autoComplete="off">
-      <h4>Check Flight Satus</h4>
-   <TextField id="filled-basic" label="Filled" variant="filled"  onChange={(e)=> this.recordAirport(e)}/>
+      <h4>Check Flight Schedule</h4>
+   <TextField id="filled-basic" label="Airport" variant="filled"  onChange={(e)=> this.recordAirport(e)}/>
+
+   
 
   <FormControl variant="filled" className="{classes.formControl}">
-        {/* <InputLabel id="demo-simple-select-filled-label">Age</InputLabel> */}
+        <InputLabel id="demo-simple-select-filled-label">Airline</InputLabel>
         <Select
           labelId="demo-simple-select-filled-label"
           id="demo-simple-select-filled"
           value="{age}"
-          onChange="{handleChange}"
+          onChange={(e)=> this.recordAirline(e)}
         >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
+          {this.state.airlines.map((airline)=><MenuItem value={airline.codeIcaoAirline}>{airline.nameAirline}</MenuItem> )}
+          {/* <MenuItem value={10}>Ten</MenuItem>
           <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem> */}
         </Select>
       </FormControl>
       <FormControl variant="filled" className="{classes.formControl}">
-        {/* <InputLabel id="demo-simple-select-filled-label">Age</InputLabel> */}
+        <InputLabel id="demo-simple-select-filled-label">Flight info</InputLabel>
         <Select
           labelId="demo-simple-select-filled-label"
           id="demo-simple-select-filled"
@@ -93,7 +127,7 @@ this.getInfo ()
 
       </div>
       <div classname='result'>
-    <FlightInfo/>
+    <FlightInfo info={this.state}/>
     </div>
       </div>
     )
