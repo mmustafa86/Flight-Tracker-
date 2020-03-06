@@ -12,9 +12,7 @@ const info= props.info.flight
 
 console.log(info)
 
-// function result(info){
     if(Object.keys(info).length !== 0){
-    //   console.log(info)
   
 
  return (
@@ -38,7 +36,8 @@ console.log(info)
       </MDBTableHead>
       <MDBTableBody>
 
-        {info.map((data ,index)=>{
+       
+         {info.map((data ,index)=>{
             console.log(data)
             return (
             <tr>
@@ -51,7 +50,7 @@ console.log(info)
           <td>{data.status}</td>
         </tr> 
             )
-    })}
+    })} 
        
 
       </MDBTableBody>

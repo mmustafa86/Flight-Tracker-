@@ -1,92 +1,73 @@
 import React from 'react';
 
 import {Carousel ,Container, Row} from 'react-bootstrap'
-import { MDBDataTable } from 'mdbreact';
+import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
+import {Card} from "react-bootstrap";
 
 
-
-
-const info = (props)=>{
-
-    const info= props.info.flight
     
-    
-  
-    
-    // function result(info){
-        if(Object.keys(info).length !== 0){
-        //   console.log(info)
-        }
-    }    
 const DatatablePage = (props) => {
     const info= props.info.flight
     console.log(info)
 
     if(Object.keys(info).length !== 0){
         //   console.log(info)
-        }
-
-//   const data = {
-//     columns: [
-//       {
-//         label: 'Name',
-//         field: 'name',
-//         sort: 'asc',
-//         width: 150
-//       },
-//       {
-//         label: 'Position',
-//         field: 'position',
-//         sort: 'asc',
-//         width: 270
-//       },
-//       {
-//         label: 'Office',
-//         field: 'office',
-//         sort: 'asc',
-//         width: 200
-//       },
-//       {
-//         label: 'Age',
-//         field: 'age',
-//         sort: 'asc',
-//         width: 100
-//       },
-//       {
-//         label: 'Start date',
-//         field: 'date',
-//         sort: 'asc',
-//         width: 150
-//       },
-//       {
-//         label: 'Salary',
-//         field: 'salary',
-//         sort: 'asc',
-//         width: 100
-//       }
-//     ],
-//     rows: [
-//       {
-//         name: 'Tiger Nixon',
-//         position: 'System Architect',
-//         office: 'Edinburgh',
-//         age: '61',
-//         date: '2011/04/25',
-//         salary: '$320'
-//       },
-     
-//     ]
-//   };
+    
 
   return (
-      <Container>
-    <MDBDataTable
-      striped
-      hover
-    //   data={data}
-    />
-    </Container>
-  );
+    <div>
+    <Container>
+     <Card className="text-center">
+     <Card.Header>Result</Card.Header>
+     <Card.Body>
+     <MDBTable>
+   <MDBTableHead>
+     <tr>
+       <th>#</th>
+       <th>Airline</th>
+       <th>Arrival Time</th>
+       <th>Arrival Gate</th>
+       <th>Departure Time</th>
+       <th>Departure Gate</th>
+       <th>Flight Number</th>
+      <th>Status</th>
+
+     </tr>
+   </MDBTableHead>
+   <MDBTableBody>
+
+    
+      {info.map((data ,index)=>{
+         console.log(data)
+         return (
+         <tr>
+       <td key={index}>{index}</td>
+       <td>{data.airline.name}</td>
+       <td>{data.arrival.estimatedTime}</td>
+       <td>{data.arrival.gate}</td>
+       <td>{data.departure.estimatedTime}</td>
+       <td>{data.departure.gate}</td>
+       <td>{data.flight.iataNumber}</td>
+       <td>{data.status}</td>
+     </tr> 
+         )
+ })} 
+    
+
+   </MDBTableBody>
+ </MDBTable>
+     </Card.Body>
+     
+   </Card> 
+   </Container>
+   </div> 
+);
+}
+
+return (
+  <div> .</div>
+)
+
 }
 
 export default DatatablePage;

@@ -18,7 +18,8 @@ export default class Flightschedules extends Component {
         flight: {},
         airport:'',
         airline:'',
-        airlines: [] 
+        airlines: [],
+        laoding: false
     };
   }
 
@@ -132,4 +133,5 @@ this.setState({ airlines: data })
       </div>
     )
   }
+  
 }
