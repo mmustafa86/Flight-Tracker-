@@ -1,0 +1,10 @@
+.Search {
+    display: flex;
+    justify-content: center;
+    
+}
+.flightSchedule{
+    display: flex;
+    justify-content: center;
+    background-color: aliceblue;
+}

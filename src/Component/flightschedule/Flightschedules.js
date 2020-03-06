@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Box from '@material-ui/core/Box';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import '../Component/flighttracker/search.css'
+import './search.css'
 import FlightInfo from './flightSchedulesinfo'
 import { MDBCol, MDBIcon } from "mdbreact";
 import axios from 'axios'
@@ -25,7 +25,7 @@ export default class Flightschedules extends Component {
 
   recordAirline(event){
     let info=event.target.value;
-    console.log(info)
+    // console.log(info)
     this.setState({airline: info})
 }
 
@@ -64,7 +64,7 @@ this.getInfo ()
 
     axios.get(cors+'https://aviation-edge.com/v2/public/airlineDatabase?key='+apiKey+'&codeIso2Country=US')
     .then(({ data }) => {
-      console.log(data)
+    //   console.log(data)
 
 this.setState({ airlines: data })
     
