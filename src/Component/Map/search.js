@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBCol, MDBFormInline, MDBBtn , MDBIcon } from "mdbreact";
+import { MDBCol, MDBFormInline, MDBBtn , MDBIcon ,MDBBadge, MDBContainer} from "mdbreact";
 // import SimpleMap from './location'
 import {Card ,Container ,Row ,Col} from 'react-bootstrap'
 import Map from './location'
@@ -49,10 +49,12 @@ export default class search extends Component {
       <Col xs={12} >
         {/* <div className='search'> */}
         <MDBCol md="12">
+        <h1><MDBBadge color="light">Search For Airport Location </MDBBadge></h1>
         <MDBFormInline className="md-form">
+ 
         <MDBIcon icon="search" />
             <input className="form-control mr-sm-4 w-75" type="text" placeholder="Search" aria-label="Search" onChange={(e)=> this.recordAirport(e)}/>
-            <MDBBtn gradient="aqua" rounded size="sm" type="submit" className="mr-auto" onClick={(e)=>this.submitInfo(e)}>
+            <MDBBtn color="blue-grey" type="submit" className="mr-auto" onClick={(e)=>this.submitInfo(e)}>
               Search
             </MDBBtn>
           

@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Box from '@material-ui/core/Box';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import { MDBCol, MDBFormInline, MDBBtn , MDBIcon ,MDBBadge, MDBContainer} from "mdbreact";
+// import SimpleMap from './location'
+import {Card ,Container ,Row ,Col} from 'react-bootstrap'
 import './search.css'
 import FlightInfo from './flightSchedulesinfo'
 import axios from 'axios'
@@ -79,57 +75,37 @@ this.setState({ airlines: data })
   
   render() {
     return (
-    <div>
-        <div  className="flightSchedule">
-        <Box  boxShadow={0} component="span" display="inline">
-      <form  noValidate autoComplete="off">
-      <h4>Check Flight Schedule</h4>
-   <TextField id="filled-basic" label="Airport" variant="filled"onChange={(e)=> this.recordAirport(e)}/>
 
-   
+      <Container className="search">
+      <Row>
+      <Col xs={12} >
+        {/* <div className='search'> */}
+        <MDBCol md="12">
+        <h1><MDBBadge color="light">Flight Schedules </MDBBadge></h1>
+        <MDBFormInline className="md-form">
+ 
+        <MDBIcon icon="search" />
+            <input className="form-control mr-sm-4 w-75" type="text" placeholder="Search" aria-label="Search" onChange={(e)=> this.recordAirport(e)}/>
+            <MDBBtn color="blue-grey" type="submit" className="mr-auto" onClick={(e)=>this.submitInfo(e)}>
+              Search
+            </MDBBtn>
+          
+            
+          </MDBFormInline>
+          </MDBCol>
+          <FlightInfo info={this.state}/> 
+        {/* </div> */}
+        </Col>
+        </Row>
+        </Container>
 
-  <FormControl variant="filled" className="{classes.formControl}">
-        <InputLabel id="demo-simple-select-filled-label">Airline</InputLabel>
-        <Select
-          labelId="demo-simple-select-filled-label"
-          id="demo-simple-select-filled"
-          value={this.state.airline}
-          onChange={(e)=> this.recordAirline(e)}
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          {this.state.airlines.map((airline)=><MenuItem value={airline.codeIcaoAirline}>{airline.nameAirline}</MenuItem> )}
-          {/* <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem> */}
-        </Select>
-      </FormControl>
-      <FormControl variant="filled" className="{classes.formControl}">
-        <InputLabel id="demo-simple-select-filled-label">Flight info</InputLabel>
-        <Select
-          labelId="demo-simple-select-filled-label"
-          id="demo-simple-select-filled"
-          value="{age}"
-          onChange="{handleChange}"
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Arrival</MenuItem>
-          <MenuItem value={10}>Departure</MenuItem>
-        
-        </Select>
-      </FormControl>
-      <Button variant="contained" color="primary" type="submit" type="submit"onClick={(e)=>this.submitInfo(e)}>Search </Button>
-</form>
-</Box>
-
-      </div>
-      <div classname='result'>
-    {(this.state) ? <FlightInfo info={this.state}/> :<div></div>}
-    </div>
-      </div>
+  
+          // value={this.state.airline}
+          // onChange={(e)=> this.recordAirline(e)}
+       
+          // {this.state.airlines.map((airline)=><MenuItem value={airline.codeIcaoAirline}>{airline.nameAirline}</MenuItem> )}
+          
+    
     )
   }
   
