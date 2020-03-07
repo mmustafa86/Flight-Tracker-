@@ -3,8 +3,29 @@
     justify-content: center;
     
 }
-.flightSchedule{
+/* .flightSchedule{
     display: flex;
     justify-content: center;
     background-color: aliceblue;
+} */
+
+.flightSchedule{
+    display: flex;
+    justify-content: center;
+background-color: rgba(0, 0, 0, 0); /* Fallback color */
+  background-color: rgba(210, 203, 203, 0.488); /* Black w/opacity/see-through */
+  font-weight: bold;
+ 
+  border: 1px solid #51e1d5;
+
+  top: 50%;
+  left: 40%;
+  /* transform: translate(-50%, -50%); */
+  z-index: 2;
+  width: 60%;
+  padding: 70px;
+  text-align: center;
+}
+.form-control{
+    color: antiquewhite
 }

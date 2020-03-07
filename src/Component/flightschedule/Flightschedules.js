@@ -8,7 +8,6 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import './search.css'
 import FlightInfo from './flightSchedulesinfo'
-import { MDBCol, MDBIcon } from "mdbreact";
 import axios from 'axios'
 
 export default class Flightschedules extends Component {
@@ -85,7 +84,7 @@ this.setState({ airlines: data })
         <Box  boxShadow={0} component="span" display="inline">
       <form  noValidate autoComplete="off">
       <h4>Check Flight Schedule</h4>
-   <TextField id="filled-basic" label="Airport" variant="filled"  onChange={(e)=> this.recordAirport(e)}/>
+   <TextField id="filled-basic" label="Airport" variant="filled"onChange={(e)=> this.recordAirport(e)}/>
 
    
 
@@ -94,7 +93,7 @@ this.setState({ airlines: data })
         <Select
           labelId="demo-simple-select-filled-label"
           id="demo-simple-select-filled"
-          value="{age}"
+          value={this.state.airline}
           onChange={(e)=> this.recordAirline(e)}
         >
           <MenuItem value="">
@@ -118,7 +117,7 @@ this.setState({ airlines: data })
             <em>None</em>
           </MenuItem>
           <MenuItem value={10}>Arrival</MenuItem>
-          <MenuItem value={20}>Departure</MenuItem>
+          <MenuItem value={10}>Departure</MenuItem>
         
         </Select>
       </FormControl>
@@ -128,7 +127,7 @@ this.setState({ airlines: data })
 
       </div>
       <div classname='result'>
-    <FlightInfo info={this.state}/>
+    {(this.state) ? <FlightInfo info={this.state}/> :<div></div>}
     </div>
       </div>
     )

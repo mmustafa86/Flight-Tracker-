@@ -9,11 +9,15 @@ import Flightsschedules from './Component/flightschedule/Flightschedules'
 import Main from './Component/main'
 import 'mdbreact/dist/css/mdb.css';
 import Search from './Component/Map/search'
+import SimpleMap from './Component/Map/Marker'
+
+
 function App() {
 
   return (
     <div>
     {/* <SimpleMap/> */}
+    
     <BrowserRouter>
     <div className="App-header">
     <Header/>
@@ -21,6 +25,7 @@ function App() {
     <Route exact path="/flightstracker" component={Flightstracker}/>
     <Route exact path="/flightsschedules" component={Flightsschedules}/>
     <Route exact path="/location" component={Search}/>
+    <Route exact path="/map" component={SimpleMap}/>
     <Footer/>
     </div>
 

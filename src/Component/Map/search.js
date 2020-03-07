@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import { MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
-import SimpleMap from './location'
+import { MDBCol, MDBFormInline, MDBBtn , MDBIcon } from "mdbreact";
+// import SimpleMap from './location'
+import {Card ,Container ,Row ,Col} from 'react-bootstrap'
+import Map from './location'
 import './Marker.css'
 import axios from 'axios'
+const initialState = {
+  airport:'',
+ location:''
+};
 
 export default class search extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-        airport:'',
-        location:''
-    };
+    this.state =  initialState
   }
-
+ 
 
   recordAirport(event){
     let info=event.target.value;
@@ -32,7 +35,7 @@ export default class search extends Component {
   }
   submitInfo(event) {
     event.preventDefault()
-
+   
     this.getInfo()
 
 
@@ -41,25 +44,28 @@ export default class search extends Component {
 
   render() {
     return (
-        <div className='search'>
+      <Container className="search">
+      <Row>
+      <Col xs={12} >
+        {/* <div className='search'> */}
         <MDBCol md="12">
-          <MDBFormInline className="md-form mr-auto mb-4">
-            <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" onChange={(e)=> this.recordAirport(e)}/>
+        <MDBFormInline className="md-form">
+        <MDBIcon icon="search" />
+            <input className="form-control mr-sm-4 w-75" type="text" placeholder="Search" aria-label="Search" onChange={(e)=> this.recordAirport(e)}/>
             <MDBBtn gradient="aqua" rounded size="sm" type="submit" className="mr-auto" onClick={(e)=>this.submitInfo(e)}>
               Search
             </MDBBtn>
-            {/* <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <MDBBtn outline color="warning" rounded size="sm" type="submit" className="mr-auto">
-              Search
-            </MDBBtn>
-            <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <MDBBtn color="unique" rounded size="sm" type="submit" className="mr-auto">
-              Search
-            </MDBBtn> */}
+          
+            
           </MDBFormInline>
-        </MDBCol>
-        <SimpleMap info={this.state.location}/>
-        </div>
+          </MDBCol>
+        {(this.state.location) ? <Map info={this.state.location}/> 
+        : <div></div> }
+       
+        {/* </div> */}
+        </Col>
+        </Row>
+        </Container>
     );
   }
 }
