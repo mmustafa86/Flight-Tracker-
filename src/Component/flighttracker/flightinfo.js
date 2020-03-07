@@ -21,7 +21,7 @@ console.log(info)
         <Card className="text-center">
         <Card.Header>Result</Card.Header>
         <Card.Body>
-        <MDBTable>
+        <MDBTable scrollY>
       <MDBTableHead>
         <tr>
           <th>#</th>
