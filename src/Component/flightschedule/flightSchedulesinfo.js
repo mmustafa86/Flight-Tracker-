@@ -8,7 +8,7 @@ const DatatablePage = (props) => {
   const info = props.info.flight
   console.log(info)
 
-  if (Object.keys(info).length !== 0) {
+  if (Object.keys(info).length !== 0 &&info.error!== "No Record Found") {
     //   console.log(info)
 
 
