@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { MDBCol, MDBFormInline, MDBBtn , MDBIcon ,MDBBadge} from "mdbreact";
-// import SimpleMap from './location'
 import {Container ,Row ,Col} from 'react-bootstrap'
-import Location from './Location'
+import Location from './location'
 import './Marker.css'
 import axios from 'axios'
 const initialState = {
