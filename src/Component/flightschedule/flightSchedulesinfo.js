@@ -9,7 +9,7 @@ const DatatablePage = (props) => {
   console.log(info)
 
   if (Object.keys(info).length !== 0 &&info.error!== "No Record Found") {
-    //   console.log(info)
+   
 
 
     return (
