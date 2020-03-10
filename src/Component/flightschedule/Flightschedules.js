@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { MDBCol, MDBFormInline, MDBBtn , MDBIcon ,MDBBadge, MDBContainer} from "mdbreact";
+import { MDBCol, MDBFormInline, MDBBtn , MDBIcon ,MDBBadge} from "mdbreact";
 // import SimpleMap from './location'
-import {Card ,Container ,Row ,Col} from 'react-bootstrap'
+import {Container ,Row ,Col} from 'react-bootstrap'
 import './search.css'
 import FlightInfo from './flightSchedulesinfo'
 import axios from 'axios'

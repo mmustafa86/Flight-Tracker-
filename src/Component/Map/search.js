@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { MDBCol, MDBFormInline, MDBBtn , MDBIcon ,MDBBadge, MDBContainer} from "mdbreact";
+import { MDBCol, MDBFormInline, MDBBtn , MDBIcon ,MDBBadge} from "mdbreact";
 // import SimpleMap from './location'
-import {Card ,Container ,Row ,Col} from 'react-bootstrap'
-import Map from './location'
+import {Container ,Row ,Col} from 'react-bootstrap'
+import Location from './Location'
 import './Marker.css'
 import axios from 'axios'
 const initialState = {
@@ -21,7 +21,11 @@ export default class search extends Component {
     let info=event.target.value;
     console.log(info)
     this.setState({airport: info})
+
 }
+
+
+
 
   getInfo() {
     const apiKey = "6e8467-016c01";
@@ -61,7 +65,7 @@ export default class search extends Component {
             
           </MDBFormInline>
           </MDBCol>
-        {(this.state.location) ? <Map info={this.state.location}/> 
+        {(this.state.location) ? <Location info={this.state.location}/> 
         : <div></div> }
        
         {/* </div> */}

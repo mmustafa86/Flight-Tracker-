@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel, Container, Row } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 import { Card } from "react-bootstrap";
 
@@ -18,8 +18,14 @@ const DatatablePage = (props) => {
           <Card className="text-center">
             <Card.Header>Result</Card.Header>
             <Card.Body>
-              <MDBTable scrollY>
-              
+              <MDBTable 
+               scrollX
+              scrollY
+               maxHeight="600px"
+                striped
+                bordered
+                small >
+
                 <MDBTableHead>
                   <tr>
                     <th>#</th>

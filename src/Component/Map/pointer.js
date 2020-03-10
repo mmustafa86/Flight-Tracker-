@@ -1,14 +1,14 @@
 import React from 'react';
 import './Marker.css';
 
-const Marker = () => {
-   
+const Marker = (props) => {
+    const { color, name } = props;
     return (
       <div>
         <div
           className="pin bounce"
-          style={{ backgroundColor: 'blue', cursor: 'pointer' }}
-          title={'name'}
+          style={{ backgroundColor: color, cursor: 'pointer' }}
+          title={name}
         />
         <div className="pulse" />
       </div>

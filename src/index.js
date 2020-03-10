@@ -7,7 +7,8 @@ import App from './App';
 // import store from "./Redux/store";
 
 ReactDOM.render(
-    <App /> , document.getElementById('root'));
+    <App /> , document.getElementById('root')
+    );
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './search.css'
-import { MDBCol, MDBFormInline, MDBBtn , MDBIcon ,MDBBadge, MDBContainer} from "mdbreact";
-import {Card ,Container ,Row ,Col,Form, Button} from 'react-bootstrap'
+import { MDBCol, MDBFormInline, MDBBtn , MDBIcon ,MDBBadge} from "mdbreact";
+import {Container ,Row ,Col} from 'react-bootstrap'
 import axios from 'axios'
 import Flightinfo from './flightinfo'
 // import MaterialUIPickers from './date'
